@@ -1,39 +1,7 @@
-//요소 선택
-const searchEl = document.querySelector(".search");
-const searchInputEl = searchEl.querySelector("input");
-const badgeEl = document.querySelector("header .badges");
-
-/**
- * 검색창 제어
- */
-// 검색창 요소(.search) 찾기.
-
-//기능 구현 - 01.search 를 누르면 자동으로 포커스가 input 요소에 넣어준다
-searchEl.addEventListener("click", () => {
-  //로직
-  searchInputEl.focus();
-});
-
-//기능 구현 - 02.
-//input 요소를 누르면 focus가 잡혀주고,
-//search 창에 class 'foucsded'를 추가하고
-//input 요소에 html 속성이 플레이스홀더를 넣어준다
-searchInputEl.addEventListener("focus", () => {
-  searchEl.classList.add("focused");
-  searchInputEl.setAttribute("placeholder", "통합검색");
-});
-
-//기능 구현 - 03. focus가 해제되면 클래스를 제거주고
-// 플레이스 홀더를 삭제해준다
-searchInputEl.addEventListener("blur", () => {
-  searchEl.classList.remove("focused");
-  searchInputEl.removeAttribute("placeholder", "통합검색");
-});
-
 //기능 구현 - 04. 스크롤 제어
 //loadash 이용하여 함수를 최대한 덜 작동시키도록?만든는작업
 // gsap 이용하여 애니메이션 쉽게 만들기
-
+const badgeEl = document.querySelector("header .badges");
 const toTopEl = document.querySelector("#to-top");
 window.addEventListener(
   "scroll",
@@ -184,6 +152,3 @@ spyEls.forEach((spyEl) => {
     .setClassToggle(spyEl, "show") // 요소가 화면에 보이면 show 클래스 추가
     .addTo(new ScrollMagic.Controller()); // 컨트롤러에 장면을 할당(필수!)
 });
-
-const thisYear = document.querySelector(".this-year");
-thisYear.textContent = new Date().getFullYear(); // 올해년도출력
